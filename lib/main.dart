@@ -26,15 +26,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String n,b;
-  int r;
+  Student st;
   
-  _HomePageState(){
-    loadStudent().then((val) => setState((){
-      n=val.studentName;
-      b=val.studentBranch;
-      r=val.studentRoll;
-    }));
+  List icon=[Icons.local_phone,Icons.mail,Icons.home,Icons.school];
+
+  _HomePageState() {
+    loadStudent().then((val) => setState(() {
+          st = val;
+        }));
   }
 
   @override
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                     size: 50.0,
                   ),
                   Text(
-                    n,
+                    st.studentName,
                     style: TextStyle(
                       fontSize: 20,
                       color: const Color(0xff2C5F2D),
@@ -65,14 +64,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    b,
+                    st.studentBranch,
                     style: TextStyle(
                       fontSize: 18,
                       color: const Color(0xff2C5F2D),
                     ),
                   ),
                   Text(
-                    'Roll No. :'+r.toString(),
+                    'Roll No. :' + st.studentRoll.toString(),
                     style: TextStyle(
                       fontSize: 18,
                       color: const Color(0xff2C5F2D),
@@ -90,85 +89,31 @@ class _HomePageState extends State<HomePage> {
                 width: 2.0,
               )),
         ),
-        Card(
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.local_phone,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-              Text(
-                '9664594525',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Card(
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.mail,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-              Text(
-                'rohit.kasale@somaiya.edu',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Card(
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.school,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-              Text(
-                'K. J. Somaiya College of Engineering',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Card(
-          child: Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.home,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-              Text(
-                'Lalbaug, Mumbai - 400 012',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: const Color(0xff2C5F2D),
-                ),
-              ),
-            ],
-          ),
+        Expanded(
+          child: new ListView.builder(
+              itemCount: st.studentInfo.length,
+              itemBuilder: (BuildContext ctxt, int index) {
+                return new Card(
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          icon[index],
+                          color: const Color(0xff2C5F2D),
+                        ),
+                      ),
+                      Text(
+                        st.studentInfo[index],
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: const Color(0xff2C5F2D),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 16.0),
@@ -234,7 +179,7 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-        )
+        ),
       ]),
     );
   }

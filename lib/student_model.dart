@@ -1,17 +1,18 @@
 class Student{
-  String studentName;
+  String studentName,studentBranch;
   int studentRoll;
-  String studentBranch;
-
+  List studentInfo;
+  
   Student({
     this.studentName,
     this.studentRoll,
-    this.studentBranch
+    this.studentBranch,
+    this.studentInfo,
  });
 
 Student.fromJson(Map<String, dynamic> parsedJson):
-      studentName= parsedJson['name'],
-      studentRoll = parsedJson['rollno'],
-      studentBranch = parsedJson ['branch'];
-    
+  studentName= parsedJson['name'],
+  studentRoll = parsedJson['rollno'] as int,
+  studentBranch = parsedJson ['branch'],
+  studentInfo=parsedJson['info'] as List;
 }
