@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:table_app/student_model.dart';
+import 'package:table_app/student_services.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +26,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String n,b;
+  int r;
+  
+  _HomePageState(){
+    loadStudent().then((val) => setState((){
+      n=val.studentName;
+      b=val.studentBranch;
+      r=val.studentRoll;
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                     size: 50.0,
                   ),
                   Text(
-                    'Rohit R. Kasale',
+                    n,
                     style: TextStyle(
                       fontSize: 20,
                       color: const Color(0xff2C5F2D),
@@ -52,14 +65,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    'TY IT A',
+                    b,
                     style: TextStyle(
                       fontSize: 18,
                       color: const Color(0xff2C5F2D),
                     ),
                   ),
                   Text(
-                    'Roll No. : 1714026',
+                    'Roll No. :'+r.toString(),
                     style: TextStyle(
                       fontSize: 18,
                       color: const Color(0xff2C5F2D),
