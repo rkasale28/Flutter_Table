@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -13,63 +18,64 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Profile'),
         backgroundColor: Color.fromRGBO(12, 104, 24, 4.0),
       ),
       body: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Column(
-                  children: <Widget>[
-                    Icon(
-                      Icons.account_circle,
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.account_circle,
+                    color: const Color(0xff2C5F2D),
+                    size: 50.0,
+                  ),
+                  Text(
+                    'Rohit R. Kasale',
+                    style: TextStyle(
+                      fontSize: 20,
                       color: const Color(0xff2C5F2D),
-                      size: 50.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      'Rohit R. Kasale',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: const Color(0xff2C5F2D),
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  Text(
+                    'TY IT A',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: const Color(0xff2C5F2D),
                     ),
-                    Text(
-                      'TY IT A',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: const Color(0xff2C5F2D),
-                      ),
+                  ),
+                  Text(
+                    'Roll No. : 1714026',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: const Color(0xff2C5F2D),
                     ),
-                    Text(
-                      'Roll No. : 1714026',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: const Color(0xff2C5F2D),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            elevation: 2.0,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-                side: BorderSide(
-                  color: const Color(0xff2C5F2D),
-                  width: 2.0,
-                )),
           ),
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+              side: BorderSide(
+                color: const Color(0xff2C5F2D),
+                width: 2.0,
+              )),
         ),
         Card(
           child: Row(
@@ -160,29 +166,27 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RaisedButton(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        "Marks",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          "Marks",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    color: Colors.white,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(
-                          color: const Color(0xff2C5F2D),
-                          width: 2.0,
-                        )),
-                    onPressed: () {
-                      //Basic way of navigation
-                      Navigator.of(context).pushNamed("/second");
-                    },
-                  ),
+                      color: Colors.white,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(
+                            color: const Color(0xff2C5F2D),
+                            width: 2.0,
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/second");
+                      }),
                 ),
               ),
               Expanded(
@@ -223,7 +227,12 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Marks extends StatelessWidget {
+class Marks extends StatefulWidget {
+  @override
+  _MarksState createState() => _MarksState();
+}
+
+class _MarksState extends State<Marks> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -414,7 +423,7 @@ class Marks extends StatelessWidget {
                         ),
                       )),
                     ]),
-                    TableRow(
+                TableRow(
                     decoration: new BoxDecoration(
                       color: Colors.black,
                     ),
@@ -444,7 +453,12 @@ class Marks extends StatelessWidget {
   }
 }
 
-class Attendance extends StatelessWidget {
+class Attendance extends StatefulWidget {
+  @override
+  _AttendanceState createState() => _AttendanceState();
+}
+
+class _AttendanceState extends State<Attendance> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -635,7 +649,7 @@ class Attendance extends StatelessWidget {
                         ),
                       )),
                     ]),
-                    TableRow(
+                TableRow(
                     decoration: new BoxDecoration(
                       color: Colors.black,
                     ),
