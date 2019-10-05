@@ -49,6 +49,7 @@ class _MarksState extends State<Marks> {
             border: Border(top: BorderSide(color: Colors.white, width: 1.0))),
         child: Text(
           "Average",
+          textAlign: TextAlign.center,
           style: TextStyle(fontSize: 14, color: Colors.white),
         ),
       )),

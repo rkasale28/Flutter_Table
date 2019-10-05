@@ -46,7 +46,8 @@ class _AttendanceState extends State<Attendance> {
         decoration: BoxDecoration(
             border: Border(top: BorderSide(color: Colors.white, width: 1.0))),
         child: Text(
-          "Average",
+          "Average",         
+          textAlign: TextAlign.center,
           style: TextStyle(fontSize: 14, color: Colors.white),
         ),
       )),
