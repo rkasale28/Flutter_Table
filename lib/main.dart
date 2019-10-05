@@ -40,10 +40,69 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+      return Scaffold(
       appBar: AppBar(
         title: const Text('My Profile'),
         backgroundColor: Color.fromRGBO(12, 104, 24, 4.0),
+      ),
+      drawer: new Drawer(
+        elevation: 2.0,
+        child: new Column(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border(
+                  bottom: BorderSide(color: Colors.blue,width: 5.0)
+                )
+              ),
+              accountName:Text(st.studentName,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),),
+              
+              accountEmail: Text(st.studentInfo[1],
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),),
+              
+              currentAccountPicture: new CircleAvatar(
+                backgroundColor: const Color(0xff2C5F2D),
+                child: Text(st.studentName.substring(0,1),
+                style: TextStyle(
+                  fontSize: 34,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
+                ),),
+              ),
+            ),
+            Container(
+              child: new ListTile(
+                title: Text("Marks",),
+                leading: CircleAvatar(
+                  backgroundColor: const Color(0xff2C5F2D),
+                  child: Icon(Icons.assessment,
+                  color: Colors.white),
+                ), 
+                onTap: () => Navigator.of(context).pushNamed("/second"),
+              ),
+            ),
+            new Divider(),
+            new ListTile(
+              leading:CircleAvatar(
+                backgroundColor: const Color(0xff2C5F2D),
+                child: Icon(Icons.wc,
+                color: Colors.white),
+              ), 
+              title: Text("Attendance"),
+              onTap: () => Navigator.of(context).pushNamed("/third"),
+            ),
+            new Divider()
+          ],
+        ),
       ),
       body: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
         Card(
@@ -117,72 +176,7 @@ class _HomePageState extends State<HomePage> {
                 );
               }),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                flex: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          "Marks",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      color: Colors.white,
-                      elevation: 2.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                            color: const Color(0xff2C5F2D),
-                            width: 2.0,
-                          )),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed("/second");
-                      }),
-                ),
-              ),
-              Expanded(
-                flex: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        "Attendance",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    color: Colors.white,
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(
-                          color: const Color(0xff2C5F2D),
-                          width: 2.0,
-                        )),
-                    onPressed: () {
-                      //Basic way of navigation
-                      Navigator.of(context).pushNamed("/third");
-                    },
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ]),
+        ]),
     );
   }
 }

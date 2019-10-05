@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_app/student_model.dart';
 import 'package:table_app/student_services.dart';
 
 class Marks extends StatefulWidget {
@@ -8,7 +9,8 @@ class Marks extends StatefulWidget {
 
 class _MarksState extends State<Marks> {
   List pointers = [];
-
+  Student st;
+  
   _MarksState() {
     loadStudent().then((val) => setState(() {
           pointers = val.studentPointer;
