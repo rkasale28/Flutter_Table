@@ -3,5 +3,19 @@
     "rollno":1714026,
     "branch":"TY IT A",
     "info":["9664594525","rohit.kasale@somaiya.edu","Lalbaug, Mumbai- 400 012",
-        "K. J. Somaiya College of Engineering"]
+        "K. J. Somaiya College of Engineering"],
+    "pointer":[
+            {"subject":"Applied Mathematics-IV","marks":"10"},          
+            {"subject":"Data Communication And Networking","marks":"8"},
+            {"subject":"Analysis of Algorithms","marks":"8"},
+            {"subject":"Computer Organization and Architecture","marks":"9"},
+            {"subject":"Web Programming - I","marks":"10"},
+            {"subject":"Programming Language - II","marks":"10"}
+        ],
+    "attendance":[{"subject":"Applied Mathematics-IV","percent":"90%"},
+        {"subject":"Data Communication And Networking","percent":"86%"},
+        {"subject":"Analysis of Algorithms","percent":"79%"},
+        {"subject":"Computer Organization and Architecture","percent":"82%"},
+        {"subject":"Web Programming - I","percent":"97%"},
+        {"subject":"Programming Language - II","percent":"98%"}]
 }
